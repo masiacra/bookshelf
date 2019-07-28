@@ -67,7 +67,7 @@ class CommonForm {
 			id: null
 		}
 	) {
-		this.form.classList.remove('hidden');
+		this.form.parentNode.classList.remove('hidden');
 		
 		const img = this.form.elements["img"];
 		img.value = book.img;
@@ -87,7 +87,7 @@ class CommonForm {
 	
 	hide() {
 		this.bookId = null;
-		this.form.classList.add('hidden');
+		this.form.parentNode.classList.add('hidden');
 	}
 	
 	onInput() {

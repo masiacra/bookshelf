@@ -38,12 +38,21 @@ body {
 	min-height: 100%;
 }
 
+.btn {
+	padding: 10px;
+	font-size: 16px;
+	border-radius: 10px;
+}
+
 
 /*
  *Стили для чердака 
  */
 header {
 	background-color: #E6E6FA;
+	text-align: center;
+	font-size: 20px;
+	padding: 20px;
 }
 
 
@@ -51,8 +60,20 @@ header {
  * Стили для основного контента
  */
 
-main {
+main h1 {
+	font-size: 30px;
+	margin: 20px 10px;
 }
+
+.button_add {
+	display: block;
+	margin: 10px 0 20px 10px;
+	font-size: 24px;
+}
+
+/*
+ * Стили для списка книг
+ */ 
 
 .bookList {
 	max-width: 900px;
@@ -61,29 +82,79 @@ main {
 	padding-left: 0;
 	margin-left: 0;
 	text-align: center;
+	font-size: 20px;
 }
 
-.bookList li {
 
-
-}
 
 .bookList img {
 	max-width: 250px;
 	height: auto;
+	flex: 0;
 }
 
-.bookList button {
-	display: block;
+.bookList div {
+	flex: 1;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	flex-flow: column wrap;
 }
 
+.bookList__delete_btn,
+.bookList__edit_btn {
+
+	flex: 0;
+	max-width: 150px;
+	margin: 10px auto;
+}
+
+.bookList__title {
+	font-weight: bold;
+}
+
+
+/*Стили формы  редактирования/добавления*/
+.adding_book_form {
+	margin: 20px;
+	text-align: center;
+	font-size: 20px;
+	background-color: white;
+}
+
+.adding_book_form label{
+}
+
+.adding_book_form input[type=text],
+.adding_book_form input[type=number] {
+	font-size: 20px;
+	border-radius: 5px;
+	
+}
+
+.aux {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.hidden {
+	display: none;
+}
 
 
 /*
- * 
+ * Стили для подвала
  */
 footer {
 	background-color: #E6E6FA;
+	text-align: center;
+	font-size: 20px;
+	padding: 20px;
 }
 
 /* только для устройств со средним размером экрана */

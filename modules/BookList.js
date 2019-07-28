@@ -96,13 +96,15 @@ class BookList {
 		//Для верстки необходимо обернуть абзацы в элемент div
 		const div1 = document.createElement('div');
 		
+		const title = createElement('p', 'textContent', 
+		  obj.title, 'bookList__title')(isValidTitle);
+		div1.appendChild(title);
+		
 		const author = createElement('p', 'textContent', 
 		  obj.author)(isValidAuthor);
 		div1.appendChild(author);
 		
-		const title = createElement('p', 'textContent', 
-		  obj.title)(isValidTitle);
-		div1.appendChild(title);
+		
 		
 		const year = createElement('p', 'textContent', 
 		  obj.year)(isValidYear);
@@ -113,10 +115,10 @@ class BookList {
 		const div2 = document.createElement('div');
 		
 		const delButton = createElement('button', 'textContent', 
-			'Редактировать')(alwaysValid);
+			'Редактировать', 'bookList__edit_btn btn')(alwaysValid);
 		div2.appendChild(delButton);
 		const editButton = createElement('button', 'textContent', 
-			'Удалить', 'bookList__delete_btn')(alwaysValid);
+			'Удалить', 'bookList__delete_btn btn')(alwaysValid);
 		div2.appendChild(editButton);
 		
 		li.appendChild(div2);
@@ -125,7 +127,6 @@ class BookList {
 	}
 	
 	addElem(book) {
-		console.log('ok');
 		const li = this.factory(book);
 		this.ul.appendChild(li);
 	}
