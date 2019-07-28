@@ -82,6 +82,12 @@ class CommonForm {
 		year.value = book.year;
 		
 		this.bookId = book.id;
+		const h2 = this.form.getElementsByTagName('h2')[0];
+		if (this.bookId) {
+			h2.textContent = 'Редактирование книги';
+		} else {
+			h2.textContent = 'Добавление книги';
+		}
 		
 	}
 	

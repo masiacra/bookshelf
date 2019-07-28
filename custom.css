@@ -76,8 +76,6 @@ main h1 {
  */ 
 
 .bookList {
-	max-width: 900px;
-	margin: 0 auto;
 	list-style-type: none;
 	padding-left: 0;
 	margin-left: 0;
@@ -86,15 +84,12 @@ main h1 {
 }
 
 
-
 .bookList img {
 	max-width: 250px;
 	height: auto;
-	flex: 0;
 }
 
 .bookList div {
-	flex: 1;
 	margin: auto;
 	text-align: center;
 	display: flex;
@@ -103,7 +98,6 @@ main h1 {
 
 .bookList__delete_btn,
 .bookList__edit_btn {
-
 	flex: 0;
 	max-width: 150px;
 	margin: 10px auto;
@@ -123,13 +117,30 @@ main h1 {
 }
 
 .adding_book_form label{
+	margin-left: 10%;
+	display: block;
+	text-align: left;
 }
 
-.adding_book_form input[type=text],
-.adding_book_form input[type=number] {
+.adding_book_form input[type='text'],
+.adding_book_form input[type='number'] {
 	font-size: 20px;
 	border-radius: 5px;
-	
+	display: block;
+	margin-left: 10%;
+}
+
+.adding_book_form input[type='text'] {
+	width: 80%;
+}
+.adding_book_form input[type='number'] {
+	max-width: 30%;
+	text-align: left;
+}
+
+.adding_book_form button {
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 .aux {
@@ -157,18 +168,70 @@ footer {
 	padding: 20px;
 }
 
-/* только для устройств со средним размером экрана */
-@media (min-width: 481px) and (max-width:768px) {
-  body {
-    /* только для планшетов */
+
+
+
+
+
+
+/*Стили для устройств с различной шириной экрана*/
+
+@media (min-width: 600px) and (max-width:768px) {
+  
+  
+  /*Стили для списка книг*/
+  .bookList li {
+	padding-left: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 40px;
   }
+  
+  .bookList img {
+	flex: 0;
+  }
+  
+  .bookList div {
+	flex: 1;
+  }
+  
+
 
 }
 
-/* только для устройств с крупным размером экрана */
+
 @media (min-width:769px) {
-  body {
-    /* только для компьютеров */
+  
+  .bookList ul {
+	max-width: 900px;
+	margin: 0 auto;
+  }
+  
+  .bookList li {
+	padding-left: 20px;
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 40px;
+  }
+  
+  .bookList img {
+	flex: 0;
+  }
+  
+  .bookList div {
+	flex: 1;
+  }
+	display: flex;
+	flex-flow: row wrap;
+	margin-bottom: 40px;
+  }
+  
+  .bookList img {
+	flex: 0;
+  }
+  
+  .bookList div {
+	flex: 1;
   }
 
 }
