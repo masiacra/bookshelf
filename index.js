@@ -1,11 +1,25 @@
 //Зависимости
 
 
-const booklist = new BookList(document.getElementsByClassName('bookList')[0]);
-const form = new CommonForm(document.forms[0]);
-const app = new App(document.body, form.display.bind(form));
 
 
-app.render('./data/books.json', booklist.render.bind(booklist));
 
-	
+
+fetch('./data/books.json')
+	.then(response => response.json())
+	.then(data => {
+		const booklist = new BookList(document.getElementsByClassName('bookList')[0]);
+		const form = new CommonForm(document.forms[0]);
+		const addBtn = new AddBtn(
+			document.body.getElementsByClassName('button_add')[0],
+			form.display.bind(form)
+		);
+		const app = new App(
+			document.body, 
+			data, 
+			form.display.bind(form),
+			booklist.addElem.bind(booklist),
+			booklist.editElem.bind(booklist)
+		);
+		booklist.render(data);
+	});

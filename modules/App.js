@@ -1,9 +1,13 @@
 //Контроллер (умный компонент) приложения
 class App {
-	constructor(element, cb) {
+	constructor(element, data, cb, cb2, cb3) {
 		this.element = element;
-		this.data = null;
+		this.data = data;
 		this.cb = cb;
+		
+		this.cb2 = cb2;
+		this.cb3 = cb3;
+		
 		
 		//Подписываемся на прослушку событий
 		this.element.addEventListener('delete', 
@@ -14,14 +18,7 @@ class App {
 			this.saveHandler.bind(this));
 	}
 	
-	render(url, cb) {
-		fetch(url)
-			.then(response => response.json())
-			.then(data => {
-				this.data = data;
-				cb(data);
-			});
-	}
+	
 	
 	deleteHandler(evt) {
 		const detail = evt.detail;
@@ -38,20 +35,16 @@ class App {
 	
 	saveHandler(evt) {
 		const book = evt.detail;
-		
-		if (book.id === null) {
-			book.id = this.data[data.length];
-		} 
-		
-		this.data.push(book);
-		console.log(this.data);
-		
+		const id = book.id;
+		if (id === null) {
+			book.id = this.data[this.data.length];
+			this.data.push(book);
+			this.cb2(book);
+		} else {
+			this.data[book.id] = book;
+			this.cb3(book);
+		}	
 	}
 	
-	//Подписка на событие
-	on(nameOfEvt, callback) {
-		const data = this.data; 
-		this.element.addEventListener(nameOfEvt, callback);
-	}
 	
 }

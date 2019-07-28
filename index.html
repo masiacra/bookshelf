@@ -3,6 +3,8 @@
   <head>
 	<meta charset="UTF-8">
 	<title>Книжная полка</title>
+	<meta name="viewport" content="width=device-width">
+	<link href="custom.css" rel="stylesheet">
   </head>
   <body>
 	<!-- Чердак -->
@@ -20,7 +22,7 @@
 	  </ul>
 	  
 	  <!-- Здесь содержится форма редактирования/добавления книги -->
-	  <form class="adding_book_form">
+	  <form class="adding_book_form hidden">
         <label>
 	      Введите адрес изображения  книги:
 	      <input type="text" name="img">
@@ -60,6 +62,7 @@
 	<script src="./modules/BookList.js"></script>
 	<script src="./modules/CommonForm.js"></script>
 	<script src="./modules/App.js"></script>
+	<script src="./modules/AddBtn.js"></script>
     <script src="index.js"></script>
   </body>
 </HTML>

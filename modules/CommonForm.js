@@ -27,8 +27,9 @@ class CommonForm {
 	}
 	
 	saveBtnHandler() {
+
 		const storedBook = {};
-		storedBook.bookId = this.bookId;
+		storedBook.id = this.bookId;
 		storedBook.img = this.form["img"].value;
 		
 		const title = this.form["title"].value;
@@ -49,7 +50,7 @@ class CommonForm {
 			this.sayAlarm();
 			return;
 		}
-		storedBook.year = this.form["year"].value;
+		storedBook.year = year;
 		const saveEvt = new CustomEvent('save', {
 			detail: storedBook,
 			bubbles: true

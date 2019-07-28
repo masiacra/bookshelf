@@ -4,6 +4,7 @@ class BookList {
 	constructor(ul) {
 		this.ul = ul;
 		this.ul.onclick = this.clickHandler.bind(this);
+		this.editElem = this.editElem.bind(this);
 	}
 	
 	
@@ -19,7 +20,7 @@ class BookList {
 	
 	
 	deleteBtnHandler(target) {
-		const parent = target.parentNode;
+		const parent = target.parentNode.parentNode;
 		const id = parseInt(parent.dataset.id);
 		const deleteEvt = new CustomEvent('delete', {
 			detail: { id },
@@ -33,9 +34,8 @@ class BookList {
 	editBtnHandler(target) {
 		const editValues = {};
 		
-		const parent = target.parentNode;
+		const parent = target.parentNode.parentNode;
 		editValues.id = parseInt(parent.dataset.id);
-		
 		const editEvt = new CustomEvent('edit', {
 			detail: editValues,
 			bubbles: true
@@ -46,13 +46,13 @@ class BookList {
 	}
 	
 	editElem(book) {
-		
 		const editElement = this.ul.querySelector(`li:nth-child(${book.id+1})`);
 		
 		const img = editElement.firstElementChild;
 		img.src = book.img;
 		
-		const title = img.nextElementSibling;
+		const div1 = img.nextElementSibling;
+		const title = div1.firstElementChild;
 		title.textContent = book.title;
 		
 		const author = title.nextElementSibling;
@@ -93,32 +93,43 @@ class BookList {
 		const img = createElement('img', 'src', obj.img)(alwaysValid);
 		li.appendChild(img);
 		
+		//Для верстки необходимо обернуть абзацы в элемент div
+		const div1 = document.createElement('div');
+		
 		const author = createElement('p', 'textContent', 
 		  obj.author)(isValidAuthor);
-		li.appendChild(author);
+		div1.appendChild(author);
 		
 		const title = createElement('p', 'textContent', 
 		  obj.title)(isValidTitle);
-		li.appendChild(title);
+		div1.appendChild(title);
 		
 		const year = createElement('p', 'textContent', 
 		  obj.year)(isValidYear);
-		li.appendChild(year);
+		div1.appendChild(year);
+		
+		li.appendChild(div1);
+		
+		const div2 = document.createElement('div');
 		
 		const delButton = createElement('button', 'textContent', 
 			'Редактировать')(alwaysValid);
-		li.appendChild(delButton);
+		div2.appendChild(delButton);
 		const editButton = createElement('button', 'textContent', 
 			'Удалить', 'bookList__delete_btn')(alwaysValid);
-		li.appendChild(editButton);
+		div2.appendChild(editButton);
+		
+		li.appendChild(div2);
 		
 		return li;
 	}
 	
-	addBook(book) {
+	addElem(book) {
+		console.log('ok');
 		const li = this.factory(book);
-		this.ul.append(li);
+		this.ul.appendChild(li);
 	}
+	
 	
 	//При передаче данных выводим содержимое на экран
 	render(data) {
