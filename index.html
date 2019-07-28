@@ -12,16 +12,54 @@
 	<!--Основной контент-->
 	<main>
 	  <h1>Книжная полка</h1>
-	  <button>Добавить книгу</button>
-	  <ul class="bookshelf">
+	  <button class="button_add">Добавить книгу</button>
+	  
+	  <!-- Здесь содержится список книг-->
+	  <ul class="bookList">
 	  
 	  </ul>
+	  
+	  <!-- Здесь содержится форма редактирования/добавления книги -->
+	  <form class="adding_book_form">
+        <label>
+	      Введите адрес изображения  книги:
+	      <input type="text" name="img">
+        </label>
+        <label>
+	      Введите название книги:
+	      <input type="text" name="title">
+        </label>
+        <label>
+	      Введите имя автора:
+	      <input type="text" name="author">
+        </label>
+        <label>
+	      Введите год издания:
+	      <input type="number" name="year">
+        </label>
+        <button class="adding_book_form__save_btn save">
+          Cохранить
+        </button>
+        <button class="adding_book_form__cancel_btn cancel">
+          Отменить
+        </button>
+
+      </form>
+	  
+	  
 	</main>
 	
 	<!-- Подвал -->
 	<footer>
 		All rights reserved
 	</footer>  
+	
+	
+	<!-- Подключение скриптов -->
+	<script src="./modules/validationMethods.js"></script>
+	<script src="./modules/BookList.js"></script>
+	<script src="./modules/CommonForm.js"></script>
+	<script src="./modules/App.js"></script>
     <script src="index.js"></script>
   </body>
 </HTML>

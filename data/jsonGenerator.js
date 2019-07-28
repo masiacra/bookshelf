@@ -17,7 +17,7 @@ function getFile(filename, data) {
 const booksData = [
 	{
 		id: 0,
-		img: './data/imgs/perfect_code.png',
+		img: './data/imgs/perfect_code.jpg',
 		author: 'С. Макконнел',
 		title: 'Совершенный код',
 		year: 2017
@@ -38,9 +38,9 @@ const booksData = [
 	},
 	{
 		id: 3,
-		img: './data/imgs/learning_js.jpg',
+		img: './data/imgs/learning_java.jpg',
 		author: 'Э. Фримен, Э. Робсон',
-		title: 'Изучаем программирование на JavaScript',
+		title: 'Изучаем программирование на Java',
 		year: 2015
 	},
 	{
