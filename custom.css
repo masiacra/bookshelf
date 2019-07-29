@@ -31,11 +31,15 @@ table {
 /* конец кода сброса стилей браузера */
  
 /* стили для мобильных устройств и базовые стили для всех устройств  */
+html {
+	height: 100%;
+}
+
 
 body {
 	display: flex;
 	flex-direction: column;
-	min-height: 100%;
+	height: 100%;
 }
 
 
@@ -77,14 +81,21 @@ body {
  *Стили для чердака 
  */
 header {
-	background-color: #E6E6FA;
+	background-color: rgb(122,60,0);
 	text-align: center;
 	font-size: 20px;
 	padding: 20px;
+	flex: 0 0 auto;
+	color: rgb(187,252,202);
 }
 
 
 /* Cтили для основного контента */
+
+main {
+	flex: 1 0 auto;
+	background-color: rgb(242,200,89);
+}
 
 main h1 {
 	font-size: 30px;
@@ -95,6 +106,9 @@ main h1 {
 	display: block;
 	margin: 10px 0 20px 10px;
 	font-size: 24px;
+	background-color: rgb(180,95,4);
+	color: rgb(242,200,89);
+	box-shadow: 0 0 4px white;
 }
 
 /* Стили для списка книг */ 
@@ -105,6 +119,15 @@ main h1 {
 	margin-left: 0;
 	text-align: center;
 	font-size: 20px;
+}
+
+.bookList li {
+	padding-bottom: 20px;
+	border-bottom: 1px solid rgb(180,95,4);
+}
+
+.bookList li:last-of-type {
+	border-bottom: none;
 }
 
 
@@ -125,6 +148,7 @@ main h1 {
 	flex: 0;
 	max-width: 150px;
 	margin: 10px auto;
+	background-color: rgb(179,211,186);
 }
 
 .bookList__title {
@@ -182,6 +206,7 @@ main h1 {
 .adding_book_form button {
 	margin-top: 20px;
 	margin-bottom: 20px;
+
 }
 
 .adding_book_form__save_btn {
@@ -198,10 +223,12 @@ main h1 {
 
 /* Стили для подвала */
 footer {
-	background-color: #E6E6FA;
+	background-color: rgb(122,60,0);
 	text-align: center;
 	font-size: 20px;
 	padding: 20px;
+	flex: 0 0 auto;
+	color: rgb(187,252,202);
 }
 
 
@@ -217,18 +244,18 @@ footer {
   
   /*Стили для списка книг*/
   .bookList li {
-	padding-left: 20px;
-	display: flex;
-	flex-flow: row wrap;
-	margin-bottom: 40px;
+		padding-left: 20px;
+		display: flex;
+		flex-flow: row wrap;
+		margin-bottom: 40px;
   }
   
   .bookList img {
-	flex: 0;
+		flex: 0;
   }
   
   .bookList div {
-	flex: 1;
+		flex: 1;
   }
   
 
@@ -239,36 +266,25 @@ footer {
 @media (min-width:769px) {
   
   .bookList ul {
-	max-width: 900px;
-	margin: 0 auto;
+		max-width: 900px;
+		margin: 0 auto;
   }
   
   .bookList li {
-	padding-left: 20px;
-	display: flex;
-	flex-flow: row wrap;
-	margin-bottom: 40px;
+		padding-left: 20px;
+		display: flex;
+		flex-flow: row wrap;
+		margin-bottom: 40px;
   }
   
   .bookList img {
-	flex: 0;
+		flex: 0;
   }
   
   .bookList div {
-	flex: 1;
-  }
-	display: flex;
-	flex-flow: row wrap;
-	margin-bottom: 40px;
+		flex: 1;
   }
   
-  .bookList img {
-	flex: 0;
-  }
-  
-  .bookList div {
-	flex: 1;
-  }
 
 }
 
