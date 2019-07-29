@@ -20,9 +20,11 @@ class CommonForm {
 		}
 	}
 	
-	sayAlarm() {
-		if (!this.form.classList.contains('alarm')) {
-			this.form.classList.add('alarm');
+	sayAlarm(word) {
+		const alarm = this.form.getElementsByClassName('alarm')[0];
+		if (alarm.classList.contains('invisible')) {
+			alarm.textContent = word;
+			alarm.classList.remove('invisible');		
 		}
 	}
 	
@@ -34,20 +36,20 @@ class CommonForm {
 		
 		const title = this.form["title"].value;
 		if (!isValidTitle(title)) {
-			this.sayAlarm();
+			this.sayAlarm('Некорректное название книги!');
 			return;
 		}
 		storedBook.title = this.form["title"].value;
 		
 		const author = this.form["author"].value;
 		if (!isValidAuthor(author)) {
-			this.sayAlarm();
+			this.sayAlarm('Некорректное имя автора!');
 			return;
 		}
 		storedBook.author = this.form["author"].value;
 		const year = parseInt(this.form["year"].value);
 		if (!isValidYear(year)) {
-			this.sayAlarm();
+			this.sayAlarm('Некорректный год издания');
 			return;
 		}
 		storedBook.year = year;
@@ -93,12 +95,15 @@ class CommonForm {
 	
 	hide() {
 		this.bookId = null;
+		const alarm = this.form.getElementsByClassName('alarm')[0];
+		alarm.classList.add('invisible');
 		this.form.parentNode.classList.add('hidden');
 	}
 	
 	onInput() {
-		if (this.form.classList.contains('alarm')) {
-			this.form.classList.remove('alarm');
+		const alarm = this.form.getElementsByClassName('alarm')[0];
+		if (!alarm.classList.contains('invisible')) {
+			alarm.classList.add('invisible');
 		}
 	}
 	
