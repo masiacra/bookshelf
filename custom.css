@@ -40,6 +40,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	font-style: Geneva, Arial, Helvetica, sans-serif;
 }
 
 
@@ -75,6 +76,11 @@ body {
 
 .invisible {
 	visibility: hidden;
+}
+
+.error p {
+	font-size: 26px;
+	font-weight: bold;
 }
 
 /*

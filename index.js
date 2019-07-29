@@ -22,4 +22,8 @@ fetch('./data/books.json')
 			booklist.editElem.bind(booklist)
 		);
 		booklist.render(data);
+	})
+	.catch( (err) => {
+		console.error(err);
+		new ErrorMessage(document.getElementsByClassName('bookList')[0]).render();
 	});
