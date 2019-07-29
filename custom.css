@@ -115,6 +115,13 @@ main h1 {
 	background-color: rgb(180,95,4);
 	color: rgb(242,200,89);
 	box-shadow: 0 0 4px white;
+	transform: scale(1);
+	transition-property: transform;
+	transition-duration: 1s;
+}
+
+.button_add:hover {
+	transform: scale(1.1);
 }
 
 /* Стили для списка книг */ 
@@ -153,8 +160,17 @@ main h1 {
 .bookList__delete_btn,
 .bookList__edit_btn {
 	flex: 0;
+	color: black;
 	margin: 5px auto;
 	background-color: rgb(179,211,186);
+	transition-property: all;
+	transition-duration: 1s;
+}
+
+.bookList__delete_btn:hover,
+.bookList__edit_btn:hover {
+	background-color: rgb(180,95, 4);
+	color: rgb(242,200,89);
 }
 
 .bookList__title {
@@ -300,4 +316,5 @@ footer {
   
 
 }
+
 
