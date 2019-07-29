@@ -2,7 +2,6 @@
 class BookList {
 	
 	constructor(ul) {
-		ul.innerHTML = '';
 		this.ul = ul;
 		this.ul.onclick = this.clickHandler.bind(this);
 		this.editElem = this.editElem.bind(this);
